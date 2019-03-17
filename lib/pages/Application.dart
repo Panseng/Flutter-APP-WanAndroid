@@ -13,9 +13,11 @@ class ApplicationPage extends StatefulWidget{
 
 class _ApplicationPageState
 		extends State<ApplicationPage> with SingleTickerProviderStateMixin {
+	// 初始页面index
 	int _page =0;
 	PageController _pageController;
 	
+	// Nav Bottom格式、布局
 	final List<BottomNavigationBarItem> _bottomTabs = <BottomNavigationBarItem>[
 		BottomNavigationBarItem(
 			icon: Icon(IconFont.wechat),
@@ -29,12 +31,16 @@ class _ApplicationPageState
 		)
 	];
 	
+	// 控制器
 	@override
 	void initState() {
 		super.initState();
+		// 初始化页面控制器，定位初始页面
 		_pageController = PageController(initialPage: this._page);
 	}
 	
+	
+	// 销毁
 	@override
 	void dispose() {
 		_pageController.dispose();
@@ -46,13 +52,18 @@ class _ApplicationPageState
     return Scaffold(
 	    body: PageView(
 		   physics: NeverScrollableScrollPhysics(),
+		    // 配置页面
 		    children: <Widget>[
-		    	WeChatPage(),
+		    	// 顺序与上面的Bottom挂钩
+			    WeChatPage(),
 			    MinePage()
 		    ],
+		    
+		    // 随change传入页面index
 		    onPageChanged: onPageChanged,
 		    controller: _pageController,
 	    ),
+	    // 配置Bottom
 	    bottomNavigationBar: BottomNavigationBar(
 		    items: _bottomTabs,
 		    currentIndex: _page,
@@ -63,6 +74,7 @@ class _ApplicationPageState
     );
   }
   
+  // 定位动画
   void onTap(int index) {
 		_pageController.animateToPage(
 				index,

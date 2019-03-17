@@ -10,6 +10,7 @@ import 'package:flutter_app/pages/article_list/ArticleItemPage.dart';
 import 'package:flutter_app/widget/EmptyHolder.dart';
 import 'package:flutter_app/widget/QuickTopFloatBtn.dart';
 
+// Future  callback
 typedef Future<Response> RequestData(int page);
 typedef void ShowQuickTop(bool show);
 
