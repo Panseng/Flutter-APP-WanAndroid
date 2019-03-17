@@ -9,4 +9,9 @@ class Api {
 	
 	/// avatar image
 	static final String AVATAR = "https://api.adorable.io/avatars/200/";
+	
+	static final String DEFAULT_PROJECT_IMG =
+			"wanandroid.com/resources/image/pc/default_project_img.jpg";
+	
+	
 }

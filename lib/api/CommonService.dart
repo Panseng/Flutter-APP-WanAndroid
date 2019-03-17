@@ -13,6 +13,10 @@ class CommonService {
 		});
 	}
 	
+	Future<Response> getWeChatListData(String url) async {
+		return await Dio().get(url, options: _getOptions());
+	}
+	
 	Options _getOptions() {
 		return Options(headers: User().getHeader());
 	}
